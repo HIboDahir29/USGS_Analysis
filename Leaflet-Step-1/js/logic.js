@@ -93,7 +93,10 @@ function createMarkers(response) {
             fillOpacity: 0.75,
             stroke: false
         }
-        ).bindPopup("<h4>" + earthquake.properties.place + "</h4><hr><p>" + new Date(earthquake.properties.time) + "</p>" + "<p><b>Magnitude: " + earthquake.properties.mag + "<b></p>");
+         // Bind a popup to the marker that will  display on click.
+        ).bindPopup("<h4>" + earthquake.properties.place + "</h4><hr><p>" + new Date(earthquake.properties.time) + "</p>" + 
+                "<p><b>Magnitude: " + earthquake.properties.mag + "<b></p>" +
+                "<p><b>Felt: " + earthquake.properties.felt + "<b></p>");
 
         earthquakeMarkers.push(marker);
     }
@@ -102,7 +105,7 @@ function createMarkers(response) {
 }
 
 
-// Perform an API call to USGS API to get earthquake data got earthquakes with a magnitude 
+// Perform an API call to USGS API to get earthquake data got earthquakes with a magnitude for the past 4 days
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson", createMarkers);
 
 
