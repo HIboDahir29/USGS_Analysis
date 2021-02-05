@@ -7,7 +7,7 @@
 # DS file
 .DS_Store
 
-.config.js
+*.config.js
 # User-specific files
 *.rsuser
 *.suo
